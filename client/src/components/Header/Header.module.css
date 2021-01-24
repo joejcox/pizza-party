@@ -1,0 +1,31 @@
+.site_header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site_header a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.site_header__logo {
+  flex: auto;
+  font-size: 2rem;
+}
+
+.site_header__nav_container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site_header__nav a {
+  padding: 1rem;
+}
+
+.site_header__user_auth {
+  margin-left: 1rem;
+}

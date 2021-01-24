@@ -1,0 +1,9 @@
+.sign_in {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+}
+
+.sign_in:hover {
+  color: white;
+}
