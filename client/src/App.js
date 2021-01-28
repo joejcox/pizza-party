@@ -1,5 +1,8 @@
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Tabs from "./pages/Tabs";
+import BasketButton from "components/BasketButton/BasketButton";
 
 import { Switch, Route } from "react-router-dom";
 
@@ -30,7 +33,14 @@ function App() {
 
   return (
     <Layout>
+      <BasketButton />
       <Switch>
+        <Route path="/tabs">
+          <Tabs />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
         <Route path="/">
           <Home />
         </Route>

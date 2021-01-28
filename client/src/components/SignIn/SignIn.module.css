@@ -7,3 +7,16 @@
 .sign_in:hover {
   color: white;
 }
+
+.button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  background: rgb(44, 44, 44);
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: black;
+}

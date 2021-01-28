@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { userInfo, setUser, setErrors } from "../../store/slices/user";
 import { auth, provider } from "../../firebase/config/firebase.config";
 import styles from "./SignIn.module.css";
+import Button from "../Button/Button";
 
 const SignIn = () => {
     const dispatch = useDispatch()
@@ -32,7 +33,7 @@ const SignIn = () => {
       })
       .catch((err) => dispatch(setErrors(err)));
 
-    return !user && (<button className={`button ${styles.sign_in}`} onClick={() => dispatch(handleSignIn())}> Sign In </button>)
+    return !user && (<button className={`${styles.button} ${styles.sign_in}`} onClick={() => dispatch(handleSignIn())}> Sign In </button>)
     
 }
 

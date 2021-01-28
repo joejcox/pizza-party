@@ -1,0 +1,72 @@
+.pizza_preview__inner {
+  position: relative;
+}
+
+/* .pizza_preview__inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s ease;
+}
+
+.pizza_preview__inner:hover::before {
+  box-shadow: 0 2px 8px 4px rgba(200, 200, 200, 0.2);
+} */
+
+/* .pizza_preview__inner::before {
+  top: 1rem;
+  right: -1rem;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  background: black;
+  z-index: -1;
+} */
+
+.pizza_image {
+  width: 250px;
+  height: 250px;
+}
+
+.pizza_title {
+  font-family: "Carter One", cursive;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 1rem;
+  background: yellow;
+  font-size: 1.4rem;
+}
+
+.pizza_title::before {
+  content: "";
+  position: absolute;
+  transform: skewX(2deg);
+  background: black;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* border-radius: 30px; */
+}
+
+.pizza_details {
+  display: inline-block;
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.pizza_ingredients {
+  text-align: justify;
+  padding: 0 0.5rem;
+}
+
+.pizza_price {
+  text-align: center;
+  font-family: "carter one", cursive;
+  font-size: 2rem;
+}

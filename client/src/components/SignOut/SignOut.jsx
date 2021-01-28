@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { userInfo, setUser, setErrors } from "../../store/slices/user";
 import { auth } from "../../firebase/config/firebase.config";
+import styles from "./SignOut.module.css";
 
 const SignOut = () => {
     const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const SignOut = () => {
       })
       .catch((err) => setErrors(err));
 
-    return user && (<button className="button" onClick={() => dispatch(handleSignOut())}>Sign Out</button>)
+    return user && (<button className={styles.button} onClick={() => dispatch(handleSignOut())}>Sign Out</button>)
     
 }
 
