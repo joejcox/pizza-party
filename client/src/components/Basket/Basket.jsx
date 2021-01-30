@@ -1,7 +1,7 @@
 import styles from "./Basket.module.css";
 import { useSelector } from "react-redux";
 import { basketItems } from "store/slices/basket";
-import BasketItem from "components/BasketItem/BasketItem";
+import BasketItem from "./BasketItem/BasketItem";
 import { Link } from "react-router-dom";
 
 const Basket = () => {

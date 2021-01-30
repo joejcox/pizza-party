@@ -3,7 +3,7 @@ import styles from "./AddToBasket.module.css";
 import { addToBasket } from "store/slices/basket";
 import { useDispatch } from "react-redux";
 import { IoBagCheck, IoBag } from "react-icons/io5";
-import BasketItem from "components/BasketItem/BasketItem";
+import BasketItem from "components/Basket/BasketItem/BasketItem";
 
 const AddToBasket = ({ pizza }) => {
   const dispatch = useDispatch();

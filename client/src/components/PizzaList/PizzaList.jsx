@@ -1,7 +1,7 @@
 import { pizzas } from "data/pizzas";
 import Section from "components/Section/Section";
 import Container from "components/Container/Container";
-import PizzaPreview from "components/PizzaPreview/PizzaPreview";
+import PizzaPreview from "./PizzaPreview/PizzaPreview";
 
 const PizzaList = () => {
   const getPizzas = () => {
