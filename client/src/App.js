@@ -1,8 +1,7 @@
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Tabs from "./pages/Tabs";
-import BasketButton from "components/BasketButton/BasketButton";
+import BasketButton from "components/Basket/BasketButton/BasketButton";
 import ShoppingBasket from "pages/ShoppingBasket";
 
 import { Switch, Route } from "react-router-dom";
@@ -38,9 +37,6 @@ function App() {
       <Switch>
         <Route path="/shopping-basket">
           <ShoppingBasket />
-        </Route>
-        <Route path="/tabs">
-          <Tabs />
         </Route>
         <Route path="/dashboard">
           <Dashboard />

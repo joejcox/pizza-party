@@ -12,6 +12,7 @@ client/node_modules
 # production
 /build
 /dist
+client/src/components/Unused
 
 # misc
 .DS_Store
