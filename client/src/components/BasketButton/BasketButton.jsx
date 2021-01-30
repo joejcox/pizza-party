@@ -1,14 +1,28 @@
 import { Link } from "react-router-dom";
 import { IoMdPizza } from "react-icons/io";
 import styles from "./BasketButton.module.css";
+import { useSelector } from "react-redux";
+import { basketItems } from "store/slices/basket";
 
-const BasketButton = () => (
-  <div className={styles.basket_button}>
+const BasketButton = () => {
+  const basket = useSelector(basketItems);
+
+  const getQuantity = () => {
+    let quantity = 0;
+    basket.map((item) => {
+      return (quantity += item.quantity);
+    });
+    return quantity;
+  };
+
+  return (
     <Link to="/shopping-basket">
-      <IoMdPizza />
+      <div className={styles.basket_button} id="basket_button">
+        <IoMdPizza />
+        <div className={styles.basket_item_count}>{getQuantity()}</div>
+      </div>
     </Link>
-    <div className={styles.basket_item_count}>1</div>
-  </div>
-);
+  );
+};
 
 export default BasketButton;

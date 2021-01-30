@@ -16,6 +16,20 @@
   font-size: 1rem;
   font-family: "Carter One", cursive;
   margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.add_to_basket__button svg {
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.1rem;
+}
+
+.add_to_basket__button_added {
+  background: yellow;
+  color: black;
+  margin-right: 0.5rem;
 }
 
 .quantity_buttons {
@@ -62,4 +76,16 @@ button:hover {
 button:active {
   background: rgb(233, 233, 2);
   color: black;
+}
+
+/* item added preview */
+
+.item_added {
+  background: white;
+  width: 250px;
+  height: 80px;
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: 999;
 }

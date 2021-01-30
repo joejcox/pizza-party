@@ -23,9 +23,9 @@ const Hero = ({
         bannerMarginTop: "-5.5rem",
       })
     : (inlineStyles = {
-        bannerHeight: "500px",
+        bannerHeight: "400px",
         bannerPadding: "0",
-        bannerMarginTop: "0",
+        bannerMarginTop: "-88px",
       });
 
   const renderImage = () => (

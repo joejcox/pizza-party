@@ -27,6 +27,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+  color: yellow !important;
+}
+
 h1 {
   font-family: "Carter One", cursive;
   word-spacing: 0.8rem;

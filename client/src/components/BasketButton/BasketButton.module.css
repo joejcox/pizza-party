@@ -28,14 +28,14 @@
 .basket_item_count {
   background: black;
   color: white;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   right: 10px;
   top: 10px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   border-radius: 50%;
 }
