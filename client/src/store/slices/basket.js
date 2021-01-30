@@ -25,10 +25,13 @@ const basket = createSlice({
         state.items.push(payload);
       }
     },
+    removeFromBasket: (state, { payload }) => {
+      state.items = state.items.filter((item) => item.name !== payload);
+    },
   },
 });
 
-export const { addToBasket } = basket.actions;
+export const { addToBasket, removeFromBasket } = basket.actions;
 export const basketItems = (state) => state.basket.items;
 
 export default basket.reducer;
