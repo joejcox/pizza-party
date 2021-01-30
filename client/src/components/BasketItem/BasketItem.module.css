@@ -34,10 +34,25 @@
 }
 
 .basket_item {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 2rem;
-  border-bottom: 1px solid #e4e4e4;
+  /* border-bottom: 1px solid #e4e4e4; */
+}
+
+.basket_item::after {
+  position: absolute;
+  content: "";
+  width: 95%;
+  height: 1px;
+  background: #e4e4e4;
+  bottom: 0;
+  left: 2.5%;
+}
+
+.basket_item:last-child::after {
+  display: none;
 }
 
 .basket_item__image {
@@ -61,11 +76,4 @@
 .basket_item__delete_btn:hover {
   transform: scale(1.2);
   background: transparent;
-}
-
-.cart_empty {
-  padding: 3rem;
-  margin-top: -8rem;
-  background: white;
-  text-align: center;
 }
