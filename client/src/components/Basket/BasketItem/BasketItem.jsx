@@ -1,10 +1,13 @@
+import BasketItemTotal from "components/Basket/BasketItemTotal/BasketItemTotal";
+import RemoveItem from "components/Basket/BasketItem/RemoveItem/RemoveItem";
 import styles from "./BasketItem.module.css";
-import { AiOutlineDelete } from "react-icons/ai";
-import { removeFromBasket } from "store/slices/basket";
-import { useDispatch } from "react-redux";
 
 const BasketItem = ({ item }) => {
-  const dispatch = useDispatch();
+  if (!item) {
+    console.log("Error in BasketItem component");
+    console.error('Prop "item" does not exist in BasketItem component');
+    return false;
+  }
 
   return (
     <article key={item.name} className={styles.basket_item}>
@@ -15,19 +18,12 @@ const BasketItem = ({ item }) => {
       />
       <div className={styles.basket_item__details}>
         <h2 className={styles.basket_item__title}>{item.name}</h2>
-        <p className={styles.basket_item__price}>{item.price}</p>
-        <span className={styles.basket_item__quantity}>
-          {item.quantity} item(s) in basket
-        </span>
+        <p className={styles.basket_item__price}>
+          {item.quantity} x £{item.price}
+        </p>
+        <RemoveItem item={item} />
       </div>
-      <div className={styles.basket_item__delete}>
-        <button
-          className={styles.basket_item__delete_btn}
-          onClick={() => dispatch(removeFromBasket(item.name))}
-        >
-          <AiOutlineDelete />
-        </button>
-      </div>
+      <BasketItemTotal item={item} quantity={item.quantity} />
     </article>
   );
 };

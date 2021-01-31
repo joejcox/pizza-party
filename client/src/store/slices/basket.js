@@ -28,10 +28,38 @@ const basket = createSlice({
     removeFromBasket: (state, { payload }) => {
       state.items = state.items.filter((item) => item.name !== payload);
     },
+    increaseQuantity: (state, { payload }) => {
+      state.items = state.items.filter((item) =>
+        item.name === payload
+          ? {
+              ...item,
+              quantity: item.quantity++,
+            }
+          : item
+      );
+    },
+    decreaseQuantity: (state, { payload }) => {
+      if (payload.quantity === 1) {
+        state.items = state.items.filter((item) => item.name !== payload.name);
+      }
+      state.items = state.items.filter((item) =>
+        item.name === payload.name
+          ? {
+              ...item,
+              quantity: item.quantity--,
+            }
+          : item
+      );
+    },
   },
 });
 
-export const { addToBasket, removeFromBasket } = basket.actions;
+export const {
+  addToBasket,
+  removeFromBasket,
+  increaseQuantity,
+  decreaseQuantity,
+} = basket.actions;
 export const basketItems = (state) => state.basket.items;
 
 export default basket.reducer;

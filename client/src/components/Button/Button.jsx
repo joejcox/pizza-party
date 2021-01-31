@@ -13,7 +13,6 @@ const Button = ({ children, to }) => {
 export default Button;
 
 export const ButtonToElement = ({ children, scrollToEl }) => {
-  console.log(scrollToEl);
   return (
     <HashLink
       className={styles.button}

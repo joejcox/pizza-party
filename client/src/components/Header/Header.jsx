@@ -41,8 +41,7 @@ const Header = () => {
         <div className={styles.site_header__nav_container}>
           <div className={styles.site_header__nav}>
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
+            <Link to="/pizzas">Pizzas</Link>
             <Link to="/contact">Contact</Link>
           </div>
         </div>

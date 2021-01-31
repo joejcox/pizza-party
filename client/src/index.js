@@ -6,10 +6,12 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store/";
 import reportWebVitals from "./reportWebVitals";
+import ScrollToTop from "utils/ScrollToTop";
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
+      <ScrollToTop />
       <App />
     </Router>
   </Provider>,
