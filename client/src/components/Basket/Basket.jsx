@@ -15,10 +15,14 @@ const Basket = () => {
   }
 
   const getBasketQuantity = () => {
-    if (!basket || basket.length === 0) return false;
+    if (!basket || basket.length === 0) return "0 items";
     let qty = 0;
     basket.forEach((item) => (qty += item.quantity));
-    return qty;
+    if (qty === 1) {
+      return `${qty} item`;
+    } else {
+      return `${qty} items`;
+    }
   };
 
   const getBasketTotal = () => {
@@ -71,7 +75,7 @@ const Basket = () => {
     <section className={styles.basket_items}>
       <div className={styles.basket_items__title_container}>
         <h1 className={styles.basket_items__title}>
-          Your Basket <small>({getBasketQuantity()} items)</small>
+          Your Basket <small>({getBasketQuantity()})</small>
         </h1>
         {total}
       </div>

@@ -13,6 +13,9 @@ client/node_modules
 /build
 /dist
 client/src/components/Unused
+client/src/firebase/config/firebase.config.js
+database.rules.json
+
 
 # misc
 .DS_Store

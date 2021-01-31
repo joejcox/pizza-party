@@ -1,38 +1,12 @@
-.basket_items__title_container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  transform: translateY(-9rem);
-  padding: 0 2rem 0.5rem;
-}
-
-.basket_items__title_container h1 {
-  color: white;
-  margin: 0;
-  font-size: 2rem;
-  font-family: "Lato", sans-serif;
-  word-spacing: 2px;
-}
-
-.basket_items__title_container h1 small {
-  font-size: 1rem;
-  margin-left: 0.5rem;
-  color: yellow;
-}
-
-.basket_items__container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  margin-top: -8rem;
-}
-
 .basket_item {
   position: relative;
   display: flex;
   align-items: center;
   padding: 2rem;
+}
+
+.basket_item:first-of-type {
+  border-top-left-radius: 30px;
 }
 
 .basket_item::after {
