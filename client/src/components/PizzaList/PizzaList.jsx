@@ -4,21 +4,14 @@ import Container from "components/Container/Container";
 import PizzaPreview from "./PizzaPreview/PizzaPreview";
 
 const PizzaList = () => {
-  const getPizzas = () => {
-    return pizzas.map(({ name, image, price }) => {
-      return (
-        <PizzaPreview
-          image={image.default}
-          title={name}
-          price={price}
-          key={name}
-        >
-          Italian flour, whole tomato sauce, mozzarella, dorbu, raw bacon, hot
-          pepper, oregano
-        </PizzaPreview>
-      );
-    });
-  };
+  const getPizzas = pizzas.map(({ name, image, price }) => {
+    return (
+      <PizzaPreview image={image.default} title={name} price={price} key={name}>
+        Italian flour, whole tomato sauce, mozzarella, dorbu, raw bacon, hot
+        pepper, oregano
+      </PizzaPreview>
+    );
+  });
 
   return (
     <Section id="pizzas" size="large">
@@ -27,7 +20,7 @@ const PizzaList = () => {
           className="uk-grid-medium uk-child-width-1-2@l uk-child-width-1-1@m"
           data-uk-grid
         >
-          {getPizzas()}
+          {getPizzas}
         </div>
       </Container>
     </Section>
