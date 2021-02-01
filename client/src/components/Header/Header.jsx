@@ -1,11 +1,14 @@
-// import SignIn from "../SignIn/SignIn";
-// import SignOut from "../SignOut/SignOut";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import ContainerFlex from "../ContainerFlex/ContainerFlex";
+import { IoBag } from "react-icons/io5";
+import { useSelector } from "react-redux";
+import { basketItems } from "store/slices/basket";
+import { getQuantity } from "utils/basketUtils";
 
 const Header = () => {
+  const basket = useSelector(basketItems);
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
 
@@ -43,6 +46,17 @@ const Header = () => {
             <Link to="/">Home</Link>
             <Link to="/pizzas">Pizzas</Link>
             <Link to="/contact">Contact</Link>
+          </div>
+          <div className={styles.site_header__basket}>
+            <Link
+              to="/shopping-basket"
+              className={styles.site_header__basket_link}
+            >
+              <IoBag />
+              <span className={styles.site_header__basket_quantity}>
+                {getQuantity(basket)}
+              </span>
+            </Link>
           </div>
         </div>
       </ContainerFlex>

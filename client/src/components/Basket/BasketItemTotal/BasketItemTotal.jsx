@@ -3,7 +3,7 @@ import styles from "./BasketItemTotal.module.css";
 import { useDispatch } from "react-redux";
 import { increaseQuantity, decreaseQuantity } from "store/slices/basket";
 
-const RemoveFromBasketButton = ({ item, quantity }) => {
+const BasketItemTotal = ({ item, quantity }) => {
   const dispatch = useDispatch();
 
   const price = (item.price * quantity).toFixed(2);
@@ -19,9 +19,6 @@ const RemoveFromBasketButton = ({ item, quantity }) => {
     <div className={styles.basket_item__total}>
       <div className={styles.price_container}>
         <p className={styles.price}>£{price}</p>
-        {/* <span className={styles.quantity}>
-          {quantity} x £{item.price}
-        </span> */}
       </div>
       <QuantityButtons
         increment={increment}
@@ -32,4 +29,4 @@ const RemoveFromBasketButton = ({ item, quantity }) => {
   );
 };
 
-export default RemoveFromBasketButton;
+export default BasketItemTotal;

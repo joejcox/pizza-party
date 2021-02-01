@@ -29,7 +29,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: yellow !important;
+  color: yellow;
 }
 
 h1 {
