@@ -11,6 +11,7 @@ import PizzaList from "components/PizzaList/PizzaList";
 //images
 
 import HeroImage from "../images/videobg1.jpg";
+import MobileImage from "../images/pizzabg.jpg";
 const Home = () => {
   // const user = useSelector(userInfo);
 
@@ -20,6 +21,7 @@ const Home = () => {
     <>
       <Hero
         src={HeroImage}
+        mobileImg={MobileImage}
         alt="Best Pizza in the UK!"
         videoSrc={HeroVideo}
         title="Pizza Party"

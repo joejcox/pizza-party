@@ -26,7 +26,7 @@ const App = () => {
         </Route>
       </Switch>
       <ToastContainer
-        autoClose="2000"
+        autoClose="3000"
         position="bottom-right"
         hideProgressBar
         transition={Flip}

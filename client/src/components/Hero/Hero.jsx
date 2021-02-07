@@ -1,5 +1,7 @@
 import styles from "./Hero.module.css";
 import ContainerFlex from "../ContainerFlex/ContainerFlex";
+import { useLocation } from "react-router-dom";
+import mobileImg from "images/pizzabg.jpg";
 
 const Hero = ({
   children,
@@ -13,26 +15,14 @@ const Hero = ({
   textAlign,
   fullHeight,
   overlay,
-  height = "400px",
 }) => {
-  let inlineStyles;
-
-  fullHeight
-    ? (inlineStyles = {
-        bannerHeight: "100vh",
-        bannerPadding: "6rem 0",
-        bannerMarginTop: "-5.5rem",
-      })
-    : (inlineStyles = {
-        bannerHeight: height,
-        bannerPadding: "0",
-        bannerMarginTop: "-88px",
-      });
+  const location = useLocation();
 
   const renderImage = () => (
     <div className={styles.hero_image}>
       {overlay && <div className={styles.hero_image__overlay} />}
-      <img src={src} alt={alt} />
+      <img className={styles.hero__desktop_image} src={src} alt={alt} />
+      <img className={styles.hero__mobile_image} src={mobileImg} alt={alt} />
     </div>
   );
 
@@ -48,12 +38,13 @@ const Hero = ({
   );
   return (
     <section
-      className={styles.hero}
-      style={{
-        height: inlineStyles.bannerHeight,
-        padding: inlineStyles.bannerPadding,
-        marginTop: inlineStyles.bannerMarginTop,
-      }}
+      className={`${styles.hero} ${
+        fullHeight ? styles.hero__full_height : ""
+      } ${
+        location.pathname === "/shopping-basket"
+          ? styles.hero__shopping_basket
+          : ""
+      }`}
     >
       <ContainerFlex align={align} justify={justify} textAlign={textAlign}>
         <div className={styles.hero_text}>
