@@ -13,10 +13,23 @@ const basket = createSlice({
   initialState,
   reducers: {
     addToBasket: (state, { payload }) => {
-      commerce.cart.add(payload.id, payload.quantity);
+      const item = state.items.find((pizza) => pizza.name === payload.name);
+
+      if (item) {
+        state.items = state.items.map((pizza) =>
+          pizza.name === payload.name
+            ? {
+                ...pizza,
+                quantity: pizza.quantity + payload.quantity,
+              }
+            : pizza
+        );
+      } else {
+        state.items.push(payload);
+      }
     },
     removeFromBasket: (state, { payload }) => {
-      commerce.cart.remove(payload.id);
+      state.items = state.items.filter((item) => item.name !== payload);
     },
     increaseQuantity: (state, { payload }) => {
       state.items = state.items.filter((item) =>

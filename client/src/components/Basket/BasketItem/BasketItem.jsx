@@ -12,18 +12,18 @@ const BasketItem = ({ item }) => {
   return (
     <article key={item.name} className={styles.basket_item}>
       <img
-        src={item.image}
+        src={item.media.source}
         alt={item.name}
         className={styles.basket_item__image}
       />
       <div className={styles.basket_item__details}>
         <h2 className={styles.basket_item__title}>{item.name}</h2>
         <p className={styles.basket_item__price}>
-          {item.quantity} x £{item.price}
+          {item.quantity} x {item.price.formatted_with_symbol}
         </p>
         <RemoveItem item={item} />
       </div>
-      <BasketItemTotal item={item} quantity={item.quantity} />
+      <BasketItemTotal item={item} />
     </article>
   );
 };

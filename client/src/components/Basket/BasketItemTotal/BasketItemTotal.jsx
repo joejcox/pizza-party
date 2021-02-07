@@ -1,29 +1,26 @@
 import QuantityButtons from "components/AddToBasket/QuantityButtons/QuantityButtons";
 import styles from "./BasketItemTotal.module.css";
-import { useDispatch } from "react-redux";
-import { increaseQuantity, decreaseQuantity } from "store/slices/basket";
+import commerce from "utils/lib/commerce";
 
-const BasketItemTotal = ({ item, quantity }) => {
-  const dispatch = useDispatch();
-
-  const price = (item.price * quantity).toFixed(2);
-
+const BasketItemTotal = ({ item }) => {
   const increment = () => {
-    dispatch(increaseQuantity(item.name));
+    commerce.cart.update(item.id, { quantity: item.quantity + 1 });
   };
   const decrement = () => {
-    dispatch(decreaseQuantity(item));
+    commerce.cart.update(item.id, { quantity: item.quantity - 1 });
   };
+
+  console.log(item);
 
   return (
     <div className={styles.basket_item__total}>
       <div className={styles.price_container}>
-        <p className={styles.price}>£{price}</p>
+        <p className={styles.price}>{item.line_total.formatted_with_symbol}</p>
       </div>
       <QuantityButtons
         increment={increment}
         decrement={decrement}
-        count={quantity}
+        count={item.quantity}
       />
     </div>
   );

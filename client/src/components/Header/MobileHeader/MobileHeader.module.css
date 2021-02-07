@@ -8,6 +8,14 @@
   z-index: 50;
 }
 
+.mobile_header a {
+  color: white;
+}
+
+.mobile_header a:hover {
+  color: yellow;
+}
+
 @media screen and (min-width: 960px) {
   .mobile_header {
     display: none;

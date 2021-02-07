@@ -1,9 +1,7 @@
 .basket_button {
-  transition: 0.2s ease;
   position: fixed;
   width: 60px;
   height: 60px;
-  background: white;
   border-radius: 50%;
   bottom: 1rem;
   right: 1rem;

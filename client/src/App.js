@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Pizzas from "./pages/Pizzas";
 import Dashboard from "./pages/Dashboard";
 import ShoppingBasket from "pages/ShoppingBasket";
+import Checkout from "pages/Checkout";
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +14,9 @@ const App = () => {
   return (
     <Layout>
       <Switch>
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
         <Route path="/shopping-basket">
           <ShoppingBasket />
         </Route>

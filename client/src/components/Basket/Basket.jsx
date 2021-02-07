@@ -1,50 +1,24 @@
 import styles from "./Basket.module.css";
-import { useSelector } from "react-redux";
-import { basketItems } from "store/slices/basket";
 import BasketItem from "./BasketItem/BasketItem";
+// import { checkOut } from "store/slices/basket";
+import { useEffect, useState } from "react";
+// import { useDispatch } from "react-redux";
+import commerce from "utils/lib/commerce";
 import { Link } from "react-router-dom";
 
 const Basket = () => {
-  const basket = useSelector(basketItems);
+  // const dispatch = useDispatch();
+  const [basket, setBasket] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  if (!basket) {
-    console.error(
-      "basket selector is not returning any valid item in the Basket component"
-    );
-    return false;
-  }
+  useEffect(() => {
+    commerce.cart.retrieve().then((cart) => setBasket(cart));
+    setLoading(false);
+  }, []);
 
-  const getBasketQuantity = () => {
-    if (!basket || basket.length === 0) return "0 items";
-    let qty = 0;
-    basket.forEach((item) => (qty += item.quantity));
-    if (qty === 1) {
-      return `${qty} item`;
-    } else {
-      return `${qty} items`;
-    }
-  };
-
-  const getBasketTotal = () => {
-    if (basket.length === 0) return false;
-    let total = 0;
-    basket.forEach((item) => {
-      if (!item.price || !item.quantity) {
-        console.error(
-          "No items returned in getBasketTotal function of Basket component"
-        );
-        return false;
-      }
-      const itemTotal = item.price * item.quantity;
-      total += itemTotal;
-    });
-
-    return `£${total.toFixed(2)}`;
-  };
-
-  const renderItems = () => {
-    if (!basket) return `Error rendering cart items`;
-    if (basket.length === 0)
+  const BasketItems = () => {
+    if (loading) return <p>Loading items...</p>;
+    if (!loading && basket.length === 0)
       return (
         <div className={styles.cart_empty}>
           <h2>Your basket is empty, please add an item to check out</h2>
@@ -53,9 +27,9 @@ const Basket = () => {
           </Link>
         </div>
       );
-    return basket.map((item) => {
-      return <BasketItem key={item.name} item={item} />;
-    });
+    return basket.line_items.map((item) => (
+      <BasketItem key={item.id} item={item} />
+    ));
   };
 
   const checkout = basket.length !== 0 && (
@@ -67,7 +41,7 @@ const Basket = () => {
   const total = basket.length !== 0 && (
     <div className={styles.basket_items__total_price}>
       <span>Total:</span>
-      <p>{getBasketTotal()}</p>
+      <p>{basket.subtotal.formatted_with_symbol}</p>
     </div>
   );
 
@@ -75,14 +49,14 @@ const Basket = () => {
     <section className={styles.basket_items}>
       <div className={styles.basket_items__title_container}>
         <h1 className={styles.basket_items__title}>
-          Your Basket <small>({getBasketQuantity()})</small>
+          Your Basket <small>({basket.total_items})</small>
         </h1>
         {total}
       </div>
       <div
         className={basket.length !== 0 ? styles.basket_items__container : ""}
       >
-        {renderItems()}
+        <BasketItems />
       </div>
       {checkout}
     </section>

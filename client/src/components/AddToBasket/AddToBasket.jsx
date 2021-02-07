@@ -1,7 +1,7 @@
 import QuantityButtons from "./QuantityButtons/QuantityButtons";
 import AddToBasketButton from "./AddToBasketButton/AddToBasketButton";
 import { useState } from "react";
-import { addToBasket } from "store/slices/basket";
+import { addToBasket } from "store/slices/olcbasket";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Toast from "./Toast/Toast";
@@ -24,16 +24,8 @@ const AddToBasket = ({ pizza }) => {
 
   const addItem = () => {
     if (!pizza) return false;
-    const { name, image, price } = pizza;
 
-    dispatch(
-      addToBasket({
-        name: name,
-        image: image,
-        price: price,
-        quantity: count,
-      })
-    );
+    dispatch(addToBasket(pizza));
     toast(() => <Toast {...pizza} count={count} />);
     setCount(1);
   };
