@@ -1,4 +1,5 @@
-import Layout from "./components/Layout/Layout";
+import Layout from "components/Layout/Layout";
+import BasketButton from "components/Basket/BasketButton/BasketButton";
 import Home from "./pages/Home";
 import Pizzas from "./pages/Pizzas";
 import Dashboard from "./pages/Dashboard";
@@ -26,12 +27,13 @@ const App = () => {
         </Route>
       </Switch>
       <ToastContainer
-        autoClose="3000"
+        autoClose="2000"
         position="bottom-right"
         hideProgressBar
         transition={Flip}
         role="Alert"
       />
+      <BasketButton />
     </Layout>
   );
 };

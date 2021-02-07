@@ -123,3 +123,13 @@ h1 {
     transform: scale(1.5);
   }
 }
+
+.Toastify {
+  display: none;
+}
+
+@media screen and (min-width: 960px) {
+  .Toastify {
+    display: block;
+  }
+}

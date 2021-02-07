@@ -40,3 +40,9 @@
   font-weight: bold;
   border-radius: 50%;
 }
+
+@media screen and (min-width: 960px) {
+  .basket_button {
+    display: none;
+  }
+}

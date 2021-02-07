@@ -6,7 +6,7 @@
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
-  margin-top: -88px;
+  margin-top: -80px;
 }
 
 .hero_image {
@@ -78,6 +78,9 @@
 }
 
 @media screen and (min-width: 960px) {
+  .hero {
+    margin-top: -88px;
+  }
   .hero_title {
     font-size: 5rem;
   }

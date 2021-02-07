@@ -5,17 +5,3 @@
   width: 100%;
   margin-top: 2rem;
 }
-
-.toast {
-  display: flex;
-  align-items: center;
-}
-
-.toast_details {
-  display: inline-block;
-  margin-left: 1rem;
-}
-
-.toast_details strong {
-  display: block;
-}
