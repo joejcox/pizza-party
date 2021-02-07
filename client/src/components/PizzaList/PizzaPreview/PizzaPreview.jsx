@@ -1,4 +1,4 @@
-import AddToBasket from "../../AddToBasket/AddToBasket";
+import AddToBasket from "components/AddToBasket/AddToBasket";
 import styles from "./PizzaPreview.module.css";
 
 const PizzaPreview = ({ children, image, title, price }) => {

@@ -13,6 +13,7 @@ const Hero = ({
   textAlign,
   fullHeight,
   overlay,
+  height = "400px",
 }) => {
   let inlineStyles;
 
@@ -23,7 +24,7 @@ const Hero = ({
         bannerMarginTop: "-5.5rem",
       })
     : (inlineStyles = {
-        bannerHeight: "400px",
+        bannerHeight: height,
         bannerPadding: "0",
         bannerMarginTop: "-88px",
       });

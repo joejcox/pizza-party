@@ -1,9 +1,10 @@
 import QuantityButtons from "./QuantityButtons/QuantityButtons";
 import AddToBasketButton from "./AddToBasketButton/AddToBasketButton";
-
 import { useState } from "react";
 import { addToBasket } from "store/slices/basket";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 import styles from "./AddToBasket.module.css";
 
@@ -11,7 +12,6 @@ const AddToBasket = ({ pizza }) => {
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(1);
-  const [added, setAdded] = useState(false);
 
   const increment = () => {
     setCount(count + 1);
@@ -22,30 +22,32 @@ const AddToBasket = ({ pizza }) => {
     setCount(count - 1);
   };
 
-  const runBasketAnimation = () => {
-    const bsktBtn = document.getElementById("basket_button");
-
-    bsktBtn.style.transform = "scale(1.5)";
-    setTimeout(function () {
-      bsktBtn.style.transform = "scale(1)";
-    }, 200);
-  };
-
   const addItem = () => {
     if (!pizza) return false;
+    const { name, image, price } = pizza;
 
     dispatch(
       addToBasket({
-        name: pizza.name,
-        image: pizza.image,
-        price: pizza.price,
+        name: name,
+        image: image,
+        price: price,
         quantity: count,
       })
     );
-
+    toast(() => (
+      <div className={styles.toast}>
+        <img src={image} alt={name} width="50" height="50" />
+        <div className={styles.toast_details}>
+          <Link to="/shopping-basket">
+            <strong>
+              {count} x {name} £{(count * price).toFixed(2)}
+            </strong>
+          </Link>
+          <i>Successfuly added to basket</i>
+        </div>
+      </div>
+    ));
     setCount(1);
-    setAdded(true);
-    runBasketAnimation();
   };
 
   return (
@@ -55,7 +57,7 @@ const AddToBasket = ({ pizza }) => {
         decrement={decrement}
         count={count}
       />
-      <AddToBasketButton addItem={addItem} added={added} />
+      <AddToBasketButton addItem={addItem} />
     </footer>
   );
 };

@@ -9,12 +9,14 @@ import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "utils/ScrollToTop";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <ScrollToTop />
-      <App />
-    </Router>
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <App />
+      </Router>
+    </Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

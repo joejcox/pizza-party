@@ -1,5 +1,5 @@
 import BasketItemTotal from "components/Basket/BasketItemTotal/BasketItemTotal";
-import RemoveItem from "components/AddToBasket/RemoveItem/RemoveItem";
+import RemoveItem from "./RemoveItem/RemoveItem";
 import styles from "./BasketItem.module.css";
 
 const BasketItem = ({ item }) => {
