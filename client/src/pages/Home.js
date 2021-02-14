@@ -1,8 +1,5 @@
-// import { useSelector } from "react-redux";
-// import { userInfo } from "../store/slices/user";
-// import Container from "../components/Container/Container";
-// import Section from "../components/Section/Section";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero/Hero";
 import { ButtonToElement } from "../components/Button/Button";
 import HeroVideo from "../images/PizzaParty.mp4";
@@ -12,13 +9,15 @@ import PizzaList from "components/PizzaList/PizzaList";
 
 import HeroImage from "../images/videobg1.jpg";
 import MobileImage from "../images/pizzabg.jpg";
-const Home = () => {
-  // const user = useSelector(userInfo);
 
+const Home = ({ pizzas }) => {
   useEffect(() => window.scrollTo(0, 0));
 
   return (
     <>
+      <Helmet>
+        <title>Pizza Party - Cardiff Pizza Company</title>
+      </Helmet>
       <Hero
         src={HeroImage}
         mobileImg={MobileImage}
@@ -34,7 +33,7 @@ const Home = () => {
       >
         <ButtonToElement scrollToEl="pizzas">Order Now</ButtonToElement>
       </Hero>
-      <PizzaList />
+      <PizzaList pizzas={pizzas} />
     </>
   );
 };
