@@ -46,8 +46,8 @@ const App = () => {
         // get pizzas from commerce js
         const pizzas = await commerce.products.list().then((res) => res.data);
 
-        // set expiry time to 30 days (2592000000 milliseconds)
-        const expiryTime = current + 2592000000;
+        // set expiry time to 1 hour (3600000 milliseconds)
+        const expiryTime = current + 3600000;
         // const expiryTime = current + 30000;
 
         // set state
