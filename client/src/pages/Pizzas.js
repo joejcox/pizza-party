@@ -2,7 +2,7 @@ import PizzaList from "components/PizzaList/PizzaList";
 import Hero from "components/Hero/Hero";
 import Image from "images/pizzabg.jpg";
 
-const Pizzas = () => (
+const Pizzas = ({ pizzas }) => (
   <>
     <Hero
       title="Pizza Menu"
@@ -12,7 +12,7 @@ const Pizzas = () => (
       align="flex-end"
       justify="center"
     />
-    <PizzaList />
+    <PizzaList pizzas={pizzas} />
   </>
 );
 
