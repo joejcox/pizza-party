@@ -2,6 +2,7 @@ import styles from "./Basket.module.css";
 import { useSelector } from "react-redux";
 import { basketItems } from "store/slices/basket";
 import BasketItem from "./BasketItem/BasketItem";
+import BasketItemMobile from "./BasketItem/BasketItemMobile";
 import { Link } from "react-router-dom";
 
 const Basket = () => {
@@ -54,7 +55,12 @@ const Basket = () => {
         </div>
       );
     return basket.map((item) => {
-      return <BasketItem key={item.name} item={item} />;
+      return (
+        <div key={item.name}>
+          <BasketItem item={item} />
+          <BasketItemMobile item={item} />
+        </div>
+      );
     });
   };
 

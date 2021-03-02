@@ -1,16 +1,16 @@
 import BasketItemTotal from "components/Basket/BasketItemTotal/BasketItemTotal";
 import RemoveItem from "./RemoveItem/RemoveItem";
-import styles from "./BasketItem.module.css";
+import styles from "./BasketItemMobile.module.css";
 
-const BasketItem = ({ item }) => {
+const BasketItemMobile = ({ item }) => {
   if (!item) {
-    console.log("Error in BasketItem component");
-    console.error('Prop "item" does not exist in BasketItem component');
+    console.error("Error in BasketItemMobile component");
+    console.error('Prop "item" does not exist in BasketItemMobile component');
     return false;
   }
 
   return (
-    <article className={styles.basket_item}>
+    <article className={styles.basket_item__mobile}>
       <img
         src={item.image}
         alt={item.name}
@@ -21,11 +21,18 @@ const BasketItem = ({ item }) => {
         <p className={styles.basket_item__price}>
           {item.quantity} x £{item.price}
         </p>
-        <RemoveItem item={item} />
       </div>
-      <BasketItemTotal item={item} quantity={item.quantity} />
+
+      <BasketItemTotal
+        item={item}
+        quantity={item.quantity}
+        style={{ marginLeft: "auto" }}
+      />
+      <div className={styles.basket_item__delete}>
+        <RemoveItem item={item} isMobile />
+      </div>
     </article>
   );
 };
 
-export default BasketItem;
+export default BasketItemMobile;

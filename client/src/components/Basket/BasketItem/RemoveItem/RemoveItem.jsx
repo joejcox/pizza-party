@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { removeFromBasket } from "store/slices/basket";
 import styles from "./RemoveItem.module.css";
 
-const RemoveItem = ({ item }) => {
+const RemoveItem = ({ item, isMobile }) => {
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +12,7 @@ const RemoveItem = ({ item }) => {
         className={styles.basket_item__delete_btn}
         onClick={() => dispatch(removeFromBasket(item.name))}
       >
-        <AiOutlineDelete /> Remove item
+        <AiOutlineDelete /> {!isMobile && "Remove item"}
       </button>
     </span>
   );

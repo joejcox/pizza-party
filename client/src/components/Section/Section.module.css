@@ -1,11 +1,26 @@
-.section {
-  padding: 3rem;
+.section.default {
+  padding: 1.5rem;
 }
 
 .section.large {
-  padding: 6rem 3rem;
+  /* padding: 3rem 1.5rem; */
+  padding: 0;
 }
 
 .section.xl {
-  padding: 9rem 3rem;
+  padding: 6rem 3rem;
+}
+
+@media screen and (min-width: 695px) {
+  .section.default {
+    padding: 3rem;
+  }
+
+  .section.large {
+    padding: 6rem 3rem;
+  }
+
+  .section.xl {
+    padding: 9rem 3rem;
+  }
 }

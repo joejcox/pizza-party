@@ -5,7 +5,7 @@ const PizzaPreview = ({ children, image, title, price }) => {
   return (
     <article className={styles.pizza_preview}>
       <div className={`${styles.pizza_preview__inner} uk-card uk-card-body`}>
-        <header className="uk-flex">
+        <header className={`${styles.pizza_preview__flex} uk-flex`}>
           <div className={styles.pizza_image_container}>
             <img
               src={image}
